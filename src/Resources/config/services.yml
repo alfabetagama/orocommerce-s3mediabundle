@@ -2,8 +2,8 @@ services:
     aligent_s3.cache:
         parent: oro.data.cache
         public: false
-        calls:
-            - [ setNamespace, [ 'aligent_s3' ] ]
+        tags:
+            - { name: 'cache.pool', namespace: 'aligent_s3' }
 
     aligent_s3.cache_adapter:
         class: Aws\DoctrineCacheAdapter
